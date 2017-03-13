@@ -4,17 +4,10 @@ Plotting Learning Curves
 ========================
 
 """
-#print(__doc__)
 
 import numpy as np
 import matplotlib.pyplot as plt
-#from sklearn import cross_validation
-#from sklearn.naive_bayes import GaussianNB
-#from sklearn.svm import SVC
-#from sklearn.datasets import load_digits
 from sklearn.model_selection import learning_curve
-from sklearn.tree import export_graphviz
-import subprocess
 
 
 def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
@@ -94,27 +87,5 @@ def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
 
     plt.legend(loc="best")
     plt.grid(True)
+    
     return plt
-
-#
-#digits = load_digits()
-#X, y = digits.data, digits.target
-
-
-#title = "Learning Curves (Naive Bayes)"
-# Cross validation with 100 iterations to get smoother mean test and train
-# score curves, each time with 20% data randomly selected as a validation set.
-#cv = cross_validation.ShuffleSplit(digits.data.shape[0], n_iter=100,
-#                                   test_size=0.2, random_state=0)
-
-#estimator = GaussianNB()
-#plot_learning_curve(estimator, title, X, y, ylim=(0.7, 1.01), cv=cv, n_jobs=4)
-
-#title = "Learning Curves (SVM, RBF kernel, $\gamma=0.001$)"
-# SVC is more expensive so we do a lower number of CV iterations:
-#cv = cross_validation.ShuffleSplit(digits.data.shape[0], n_iter=10,
-#                                   test_size=0.2, random_state=0)
-#estimator = SVC(gamma=0.001)
-#plot_learning_curve(estimator, title, X, y, (0.7, 1.01), cv=cv, n_jobs=4)
-
-#plt.show()
